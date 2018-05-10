@@ -1,0 +1,18 @@
+nav li {
+    list-style: none;
+}
+
+nav .dropdown-toggle:after {
+    display: none;
+}
+
+nav .dropdown-menu {
+    top: 102%;
+    right: 0;
+    left: initial;
+}
+
+footer {
+    text-align: center;
+    padding: 12px;
+}
