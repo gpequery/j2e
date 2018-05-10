@@ -3,8 +3,8 @@
     <head>
         <title>Elèves</title>
         <meta charset="UTF-8"/>
+        <link rel="stylesheet" href="../css/compile/compile.css"/>
         <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css"/>
-        <link rel="stylesheet" href="../css/bootstrap/bootsrap_refacto.css"/>
         <script src="../js/jquery/jquery.js"></script>
         <script src="../js/boostrap/bootstrap.min.js"></script>
     </head>
