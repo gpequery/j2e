@@ -1,5 +1,5 @@
 <%@ include file="Templates/header.jsp" %>
 
-HOME
+    Contenu !
 
 <%@ include file="Templates/footer.jsp" %>
