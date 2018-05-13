@@ -6,6 +6,10 @@
         <element id="directory" name="classes">
           <element id="module-output" name="j2e" />
         </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Hibernate 5.2.16-5.2.16" />
+          <element id="library" level="project" name="postgresql-42.2.2" />
+        </element>
       </element>
       <element id="javaee-facet-resources" facet="j2e/web/Web" />
       <element id="javaee-facet-resources" facet="j2e/javaeeApplication/javaEEApplication" />

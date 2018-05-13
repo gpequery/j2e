@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<hibernate-mapping xmlns="http://www.hibernate.org/xsd/hibernate-mapping">
+    <class name="fr.esgi.dto.Tache" table="tache">
+        <id name="id" column="id">
+            <generator class="increment"/>
+        </id>
+
+        <property name="nom" column="nom"/>
+        <property name="description" column="description"/>
+        <property name="priorite" column="priorite" type="int"/>
+    </class>
+</hibernate-mapping>

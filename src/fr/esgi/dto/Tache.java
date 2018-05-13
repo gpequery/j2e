@@ -1,17 +1,19 @@
 package fr.esgi.dto;
 
-public class TacheDTO {
+public class Tache {
 
     private int id;
     private String nom;
     private String description;
-    private PrioriteDTO prioriteDTO;
+    private Priorite priorite;
 
-    public TacheDTO(int id, String nom, String description, PrioriteDTO prioriteDTO) {
+    public Tache() {}
+
+    public Tache(int id, String nom, String description, Priorite priorite) {
         this.id = id;
         this.nom = nom;
         this.description = description;
-        this.prioriteDTO = prioriteDTO;
+        this.priorite = priorite;
     }
 
     public int getId() {
@@ -38,11 +40,21 @@ public class TacheDTO {
         this.description = description;
     }
 
-    public PrioriteDTO getPrioriteDTO() {
-        return prioriteDTO;
+    public Priorite getPriorite() {
+        return priorite;
     }
 
-    public void setPrioriteDTO(PrioriteDTO prioriteDTO) {
-        this.prioriteDTO = prioriteDTO;
+    public void setPriorite(Priorite priorite) {
+        this.priorite = priorite;
+    }
+
+    @Override
+    public String toString() {
+        return "Tache{" +
+                "id=" + id +
+                ", nom='" + nom + '\'' +
+                ", description='" + description + '\'' +
+                ", priorite=" + priorite +
+                '}';
     }
 }
