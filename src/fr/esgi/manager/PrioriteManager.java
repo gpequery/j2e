@@ -19,34 +19,29 @@ public class PrioriteManager {
         session.close();
     }
 
-    private Priorite getPriorite(String value){
+    private Priorite getPriorite(String whereClause, Object value){
         Session session = DatabaseUtils.getSessionFactory().getCurrentSession();
         session.beginTransaction();
 
-        String sql = "SELECT  Priorite.id, Priorite.nom FROM Priorite " + value;
+        String sql = "SELECT id, nom FROM Priorite " + whereClause;
+        System.out.println("La request : " + sql);
         Query query = session.createQuery(sql);
-        List results = query.list();
+        query.setParameter("param", value);
+        List<Object[]> list = query.list();
 
         session.close();
-        return (Priorite)results.get(0);
+
+        Priorite p = new Priorite();
+        p.setId((int)list.get(0)[0]);
+        p.setNom((String)list.get(0)[1]);
+
+        return p;
     }
 
     public Priorite getPrioriteByName(String name){
-        return getPriorite("WHERE Priorite.nom = " + name);
+        return getPriorite("WHERE nom = :param", name);
     }
-
-    public Priorite getPrioriteById(int id){
-//        return getPriorite("WHERE Priorite.id = " + String.valueOf(id));
-        Session session = DatabaseUtils.getSessionFactory().getCurrentSession();
-        session.beginTransaction();
-
-        String sql = "SELECT  P.id, P.nom FROM Priorite P WHERE Priorite.id = 3";
-        Query query = session.createQuery(sql);
-        List results = query.list();
-
-        session.close();
-        return (Priorite)results.get(0);
-    }
+    public Priorite getPrioriteById(int id){ return getPriorite("WHERE id = :param", id); }
 
     // Ca c'est ok mais pas ouf
 //    public Priorite getPrioriteById(int id){

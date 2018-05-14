@@ -1,8 +1,17 @@
 package fr.esgi.dto;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "priorite")
 public class Priorite {
 
+    @Id
+    @GeneratedValue
+    @Column(name = "id")
     private int id;
+
+    @Column(name = "nom")
     private String nom;
 
     public Priorite() {}

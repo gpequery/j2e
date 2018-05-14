@@ -14,7 +14,7 @@
         <property name="hibernate.current_session_context_class">org.hibernate.context.internal.ThreadLocalSessionContext</property>
         <property name="show_sql">true</property>
 
-        <mapping resource="fr/esgi/dto/Priorite.xml"/>
-        <!--<mapping resource="fr/esgi/dto/Tache.xml"/>-->
+        <mapping class="fr.esgi.dto.Priorite"/>
+        <mapping class="fr.esgi.dto.Tache"/>
     </session-factory>
 </hibernate-configuration>

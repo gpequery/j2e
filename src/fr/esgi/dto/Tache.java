@@ -1,10 +1,24 @@
 package fr.esgi.dto;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "tache")
 public class Tache {
 
+    @Id
+    @GeneratedValue
+    @Column(name = "id")
     private int id;
+
+    @Column(name = "nom")
     private String nom;
+
+    @Column(name = "description")
     private String description;
+
+    @OneToOne
+    @JoinColumn(name = "id")
     private Priorite priorite;
 
     public Tache() {}
