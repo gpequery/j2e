@@ -1,38 +1,42 @@
 package Servlets;
 
 import fr.esgi.dto.Priorite;
+import fr.esgi.dto.Tache;
 import fr.esgi.manager.PrioriteManager;
+import fr.esgi.manager.TacheManager;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 public class Home extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
         request.getRequestDispatcher("Views/home.jsp").forward(request, response);
 
-        PrioriteManager pm = new PrioriteManager();
-
-        System.out.println("-------------------------------------------------------");
-        System.out.println("-------------------------------------------------------");
-        Priorite urgente = new Priorite("Urgent lol");
-        Priorite majeur = new Priorite("Majeur lol");
-        Priorite mineur = new Priorite("Mineur lol");
-
-//        pm.addPriorite(urgente);
-//        pm.addPriorite(majeur);
-//        pm.addPriorite(mineur);
-
-        pm.getPriorites();
+        PrioriteManager prioriteManager = new PrioriteManager();
+        TacheManager tacheManager = new TacheManager();
 
         System.out.println("======================================================");
 
-        Priorite p = pm.getPrioriteById(3);
-        System.out.println("Id : " + p.getId() + ", nom : " + p.getNom());
+        List<Priorite> priorites = prioriteManager.getPriorites();
+        List<Tache> taches = tacheManager.getTaches();
 
-        p = pm.getPrioriteByName("Urgent");
-        System.out.println("Id : " + p.getId() + ", nom : " + p.getNom());
+        /* TODO Jveux insert des taches dans ta bdd :'( */
+        Tache newTache = new Tache(0, "Tache De Greg", "Jolie Tâche", priorites.get(0));
+        tacheManager.addTache(newTache);
+
+        for (Priorite priorite : priorites) {
+            System.out.println(priorite);
+        }
+
+        for (Tache tache : taches) {
+            System.out.println(tache);
+        }
+
+
+        System.out.println("======================================================");
     }
 }

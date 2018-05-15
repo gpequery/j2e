@@ -1,7 +1,7 @@
 package fr.esgi.manager;
 
 import fr.esgi.DatabaseUtils;
-import fr.esgi.dto.Priorite;
+import fr.esgi.dto.Tache;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
@@ -9,21 +9,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class PrioriteManager {
+public class TacheManager {
 
-    public void addPriorite(Priorite priorite){
+    public void addTache(Tache tache){
         Session session = DatabaseUtils.getSessionFactory().getCurrentSession();
         session.beginTransaction();
-        session.save(priorite);
+        session.save(tache);
         session.getTransaction().commit();
         session.close();
     }
 
-    private Priorite getPriorite(String whereClause, Object value){
+    private Tache getTache(String whereClause, Object value){
         Session session = DatabaseUtils.getSessionFactory().getCurrentSession();
         session.beginTransaction();
 
-        String sql = "SELECT id, nom FROM Priorite " + whereClause;
+        String sql = "SELECT id, nom FROM Tache " + whereClause;
 //        System.out.println("La request : " + sql);
         Query query = session.createQuery(sql);
         query.setParameter("param", value);
@@ -31,37 +31,37 @@ public class PrioriteManager {
 
         session.close();
 
-        Priorite p = new Priorite();
-        p.setId((int)list.get(0)[0]);
-        p.setNom((String)list.get(0)[1]);
+        Tache tache = new Tache();
+        tache.setId((int)list.get(0)[0]);
+        tache.setNom((String)list.get(0)[1]);
 
-        return p;
+        return tache;
     }
 
-    public Priorite getPrioriteByName(String name){
-        return getPriorite("WHERE nom = :param", name);
+    public Tache getTacheByName(String name){
+        return getTache("WHERE nom = :param", name);
     }
-    public Priorite getPrioriteById(int id){ return getPriorite("WHERE id = :param", id); }
+    public Tache getTacheById(int id){ return getTache("WHERE id = :param", id); }
 
     // Ca c'est ok mais pas ouf
-//    public Priorite getPrioriteById(int id){
+//    public Tache getTacheById(int id){
 //        Session session = DatabaseUtils.getSessionFactory().getCurrentSession();
 //        session.beginTransaction();
 //
-//        Priorite p = session.get(Priorite.class, id);
+//        Tache p = session.get(Tache.class, id);
 //
 //        session.close();
 //        return p;
 //    }
 
-    public List<Priorite> getPriorites(){
+    public List<Tache> getTaches(){
         Session session = DatabaseUtils.getSessionFactory().getCurrentSession();
         session.beginTransaction();
-        List prioritesList = session.createQuery("FROM Priorite").list();
-        List<Priorite> list = new ArrayList<>();
+        List tacheList = session.createQuery("FROM Tache").list();
+        List<Tache> list = new ArrayList<>();
 
-        for (Object priorite : prioritesList) {
-            list.add((Priorite)priorite);
+        for (Object tache : tacheList) {
+            list.add((Tache)tache);
         }
 
         session.getTransaction().commit();
