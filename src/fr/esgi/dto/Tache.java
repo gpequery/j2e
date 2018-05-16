@@ -21,7 +21,14 @@ public class Tache {
     @JoinColumn(name = "id")
     private Priorite priorite;
 
-    public Tache() {}
+    public Tache() {
+    }
+
+    public Tache(String nom, String description, Priorite priorite) {
+        this.nom = nom;
+        this.description = description;
+        this.priorite = priorite;
+    }
 
     public Tache(int id, String nom, String description, Priorite priorite) {
         this.id = id;

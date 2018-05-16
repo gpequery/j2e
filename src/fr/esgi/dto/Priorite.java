@@ -14,7 +14,8 @@ public class Priorite {
     @Column(name = "nom")
     private String nom;
 
-    public Priorite() {}
+    public Priorite() {
+    }
 
     public Priorite(String nom) {
         this.nom = nom;

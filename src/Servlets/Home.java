@@ -20,12 +20,14 @@ public class Home extends HttpServlet {
         TacheManager tacheManager = new TacheManager();
 
         System.out.println("======================================================");
-
+        System.out.println("0");
         List<Priorite> priorites = prioriteManager.getPriorites();
+        System.out.println("0.5");
         List<Tache> taches = tacheManager.getTaches();
 
         /* TODO Jveux insert des taches dans ta bdd :'( */
-        Tache newTache = new Tache(0, "Tache De Greg", "Jolie Tâche", priorites.get(0));
+        Tache newTache = new Tache("Tache De Greg", "Jolie Tâche", priorites.get(0));
+        System.out.println("1");
         tacheManager.addTache(newTache);
 
         for (Priorite priorite : priorites) {

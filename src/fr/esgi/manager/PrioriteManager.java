@@ -55,8 +55,12 @@ public class PrioriteManager {
 //    }
 
     public List<Priorite> getPriorites(){
+        System.out.println("0.1");
         Session session = DatabaseUtils.getSessionFactory().getCurrentSession();
+        System.out.println("0.2");
         session.beginTransaction();
+
+        System.out.println("0.4");
         List prioritesList = session.createQuery("FROM Priorite").list();
         List<Priorite> list = new ArrayList<>();
 

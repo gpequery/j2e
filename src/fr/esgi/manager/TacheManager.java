@@ -14,7 +14,9 @@ public class TacheManager {
     public void addTache(Tache tache){
         Session session = DatabaseUtils.getSessionFactory().getCurrentSession();
         session.beginTransaction();
+        System.out.println("2");
         session.save(tache);
+        System.out.println("3");
         session.getTransaction().commit();
         session.close();
     }
@@ -63,6 +65,8 @@ public class TacheManager {
         for (Object tache : tacheList) {
             list.add((Tache)tache);
         }
+
+        System.out.println("0.6");
 
         session.getTransaction().commit();
         session.close();
