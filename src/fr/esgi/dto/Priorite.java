@@ -3,15 +3,15 @@ package fr.esgi.dto;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "priorite")
+@Table(name = "PRIORITE")
 public class Priorite {
 
     @Id
-    @GeneratedValue
-    @Column(name = "id")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name = "ID")
     private int id;
 
-    @Column(name = "nom")
+    @Column(name = "NOM")
     private String nom;
 
     public Priorite() {
