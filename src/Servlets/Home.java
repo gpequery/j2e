@@ -14,31 +14,10 @@ import java.util.List;
 
 public class Home extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
-        request.getRequestDispatcher("Views/home.jsp").forward(request, response);
-
-        PrioriteManager prioriteManager = new PrioriteManager();
         TacheManager tacheManager = new TacheManager();
-
-        System.out.println("======================================================");
-        System.out.println("0");
-        List<Priorite> priorites = prioriteManager.getPriorites();
-        System.out.println("0.5");
         List<Tache> taches = tacheManager.getTaches();
 
-        /* TODO Jveux insert des taches dans ta bdd :'( */
-        for (Priorite priorite : priorites) {
-            System.out.println(priorite);
-        }
-
-        Tache newTache = new Tache("Tache De Greg", "Jolie Tâche", priorites.get(0));
-        tacheManager.addTache(newTache);
-
-
-        for (Tache tache : taches) {
-            System.out.println(tache);
-        }
-
-
-        System.out.println("======================================================");
+        request.setAttribute("taches", taches);
+        request.getRequestDispatcher("Views/home.jsp").forward(request, response);
     }
 }

@@ -1,4 +1,12 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<%@ page import="fr.esgi.dto.Tache" %>
+<%@ page import="fr.esgi.dto.Priorite" %>
+<%@ page import="java.util.List" %>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page pageEncoding="UTF-8" %>
+
 <html>
     <head>
         <title>Elèves</title>

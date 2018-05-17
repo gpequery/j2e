@@ -64,8 +64,6 @@ public class TacheManager {
             list.add((Tache)tache);
         }
 
-        System.out.println("0.6");
-
         session.getTransaction().commit();
         session.close();
         return list;

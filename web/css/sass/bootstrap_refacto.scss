@@ -1,10 +1,12 @@
 nav {
-    .dropdown-toggle:after {
-        display: none;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
+    .dropdown {
+        .dropdown-toggle:after {
+            display: none;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
 
         .dropdown-menu {
             top: 102%;

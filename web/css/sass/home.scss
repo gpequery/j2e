@@ -1,0 +1,25 @@
+#home {
+    #listTache {
+        margin-top: 30px;
+
+        .card-header {
+            div {
+                display: inline-block;
+                width: 49%;
+
+                &:nth-child(2) {
+                    text-align: right;
+
+                    button {
+                        width: 70px;
+                        height: 36px;
+
+                        img {
+                            width: 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
