@@ -21,5 +21,23 @@
                 }
             }
         }
+
+        .card-body {
+            th:nth-child(1) {
+                width: 25px;
+            }
+            th:nth-child(4) {
+                width: 130px;
+            }
+            th:nth-child(5) {
+                width: 210px;
+            }
+
+            tr :nth-child(5) {
+                input {
+                    margin: 0 5px;
+                }
+            }
+        }
     }
 }

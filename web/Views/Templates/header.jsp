@@ -12,9 +12,9 @@
         <title>Elèves</title>
         <meta charset="UTF-8"/>
         <link rel="stylesheet" href="../css/compile/compile.css"/>
-        <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css"/>
         <script src="../js/jquery/jquery.js"></script>
-        <script src="../js/boostrap/bootstrap.min.js"></script>
+        <script>$j = jQuery.noConflict()</script>
+        <script src="../js/include.js"></script>
     </head>
     <body>
         <nav class="navbar navbar-dark bg-dark">
