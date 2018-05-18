@@ -9,7 +9,11 @@
             <div class="card text-white bg-dark" id="listTache">
                 <div class="card-header">
                     <div><h2>List des tâches</h2></div>
-                    <div><button class="btn btn-success" id="addTache"><img src="../images/add-button-white.png" /> </button></div>
+                    <div>
+                        <button class="btn btn-success" id="addTache">
+                            <img src="../images/add-button-white.png"/>
+                        </button>
+                    </div>
                 </div>
 
                 <div class="card-body">
@@ -45,8 +49,21 @@
     </div>
 </div>
 
-<div class="dialog" id="dialog_add_tache" title="Créer une tâche">
-    <p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
+<div class="dialog" id="dialog_tache">
+    <form>
+        <label for="dialog_tache_nom">Nom</label>
+        <input type="text" name="nom" id="dialog_tache_nom" class="form-control"/>
+
+        <label for="dialog_tache_description">Description</label>
+        <textarea class="form-control" id="dialog_tache_description" rows="5"></textarea>
+
+        <label for="dialog_tache_priorite">Description</label>
+        <select class="form-control" id="dialog_tache_priorite">
+            <c:forEach items="${priorites}" var="priorite">
+                <option value="${priorite.id}">${priorite.nom}</option>
+            </c:forEach>
+        </select>
+    </form>
 </div>
 
 <%@ include file="Templates/footer.jsp" %>

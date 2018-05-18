@@ -14,10 +14,15 @@ import java.util.List;
 
 public class Home extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
-        TacheManager tacheManager = new TacheManager();
-        List<Tache> taches = tacheManager.getTaches();
+//        TacheManager tacheManager = new TacheManager();
+//        List<Tache> taches = tacheManager.getTaches();
+//
+//        request.setAttribute("taches", taches);
+        PrioriteManager prioriteManager = new PrioriteManager();
+        List<Priorite> priorites = prioriteManager.getPriorites();
 
-        request.setAttribute("taches", taches);
+        request.setAttribute("priorites", priorites);
+
         request.getRequestDispatcher("Views/home.jsp").forward(request, response);
     }
 }
