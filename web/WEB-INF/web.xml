@@ -13,6 +13,7 @@
         <servlet-name>Home</servlet-name>
         <url-pattern>/index</url-pattern>
         <url-pattern>/tache/create</url-pattern>
+        <url-pattern>/tache/update</url-pattern>
         <url-pattern>/tache/delete</url-pattern>
     </servlet-mapping>
 

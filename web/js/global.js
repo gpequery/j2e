@@ -12,6 +12,14 @@ var global = {
             open: function() { dialogBg.show()},
             close: function() { dialogBg.hide()}
         }
+    },
+    home: {
+        row: {
+            id:1,
+            nom:2,
+            description:3,
+            priorite:4
+        }
     }
 };
 

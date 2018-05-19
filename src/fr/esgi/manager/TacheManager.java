@@ -1,7 +1,9 @@
 package fr.esgi.manager;
 
 import fr.esgi.DatabaseUtils;
+import fr.esgi.dto.Priorite;
 import fr.esgi.dto.Tache;
+import javafx.scene.layout.Priority;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
@@ -76,4 +78,17 @@ public class TacheManager {
         session.close();
     }
 
+    public void updateTache(int tacheId, String newNom, String newDescription, Priorite newPriorite) {
+        Tache tache = this.getTacheById(tacheId);
+
+        tache.setNom(newNom);
+        tache.setDescription(newDescription);
+        tache.setPriorite(newPriorite);
+
+        Session session = DatabaseUtils.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+        session.merge(tache);
+        session.getTransaction().commit();
+        session.close();
+    }
 }
