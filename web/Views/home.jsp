@@ -10,7 +10,7 @@
                 <div class="card-header">
                     <div><h2>List des tâches</h2></div>
                     <div>
-                        <button class="btn btn-success" id="addTache">
+                        <button class="btn btn-success" id="addTache" data-action="create" data-title-dialog="Créer une tâche">
                             <img src="../images/add-button-white.png"/>
                         </button>
                     </div>
@@ -34,9 +34,9 @@
                                     <td>${tache.id}</td>
                                     <td>${tache.nom}</td>
                                     <td>${tache.description}</td>
-                                    <td>${tache.priorite.nom}</td>
+                                    <td data-priorite-id="${tache.priorite.id}">${tache.priorite.nom}</td>
                                     <td>
-                                        <input type="submit" value="Modifier" class="btn btn-primary"/>
+                                        <input type="submit" value="Modifier" class="btn btn-primary update_tache" data-action="update" data-title-dialog="Modifier une tâche"/>
                                         <input type="submit" value="Supprimer" class="btn btn-danger delete_tache"/>
                                     </td>
                                 </tr>
@@ -52,22 +52,25 @@
 <div class="dialog" id="dialog_tache">
     <form>
         <label for="dialog_tache_nom">Nom</label>
-        <input type="text" name="nom" placeholder="Nom" id="dialog_tache_nom" class="form-control"/>
+        <input type="text" name="nom" placeholder="Nom" id="dialog_tache_nom" class="form-control" required/>
 
         <label for="dialog_tache_description">Description</label>
         <textarea class="form-control" placeholder="Description" id="dialog_tache_description" rows="5"></textarea>
 
-        <label for="dialog_tache_priorite">Description</label>
-        <select class="form-control" id="dialog_tache_priorite">
+        <label for="dialog_tache_priorite">Priorité</label>
+        <select class="form-control" id="dialog_tache_priorite" required>
+            <option disabled selected value="">Choisir une priorité</option>
             <c:forEach items="${priorites}" var="priorite">
                 <option value="${priorite.id}">${priorite.nom}</option>
             </c:forEach>
         </select>
 
         <div id="form_input">
-            <input type="reset" class="btn btn-warning"/>
-            <input type="submit" class="btn btn-success"/>
+            <input type="reset" value="Annuler" class="btn btn-warning"/>
+            <input type="submit" value="Valider" class="btn btn-success"/>
         </div>
+
+        <input type="hidden" name="action"/>
     </form>
 </div>
 
