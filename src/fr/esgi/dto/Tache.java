@@ -29,6 +29,10 @@ public class Tache {
         this.description = description;
     }
 
+    public Tache(int id) {
+        this.id = id;
+    }
+
     public Tache(String nom, String description, Priorite priorite) {
         this.nom = nom;
         this.description = description;

@@ -30,7 +30,7 @@
 
                         <tbody>
                             <c:forEach items="${taches}" var="tache">
-                                <tr data-id="${tache.id}">
+                                <tr id="tache_${tache.id}" data-id="${tache.id}">
                                     <td>${tache.id}</td>
                                     <td>${tache.nom}</td>
                                     <td>${tache.description}</td>

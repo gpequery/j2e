@@ -24,7 +24,6 @@ public class TacheManager {
         session.beginTransaction();
 
         String sql = "SELECT id, nom FROM Tache " + whereClause;
-//        System.out.println("La request : " + sql);
         Query query = session.createQuery(sql);
         query.setParameter("param", value);
         List<Object[]> list = query.list();
@@ -67,6 +66,14 @@ public class TacheManager {
         session.getTransaction().commit();
         session.close();
         return list;
+    }
+
+    public void deleteTache(int tacheId) {
+        Session session = DatabaseUtils.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+        session.delete(new Tache(tacheId));
+        session.getTransaction().commit();
+        session.close();
     }
 
 }

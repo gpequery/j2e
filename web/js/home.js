@@ -15,20 +15,26 @@ $j(document).ready(function () {
 
         if (window.confirm("Confirmer la création de cette tâche ?")) {
             var nom = $j(this).find('#dialog_tache_nom').val();
-            var description =  $j(this).find('#dialog_tache_description').val();
+            var description = $j(this).find('#dialog_tache_description').val();
             var prioriteId = $j(this).find('#dialog_tache_priorite').val();
 
             $j.post("/tache/create", {
                 nom: nom,
-                description:description,
+                description: description,
                 prioriteId: prioriteId
-            }, function (data) {
-                //TODO fix le if avec le return du servlet pour fermer la dialog + inserer la ligne de la tache dans le tableau
-                if (data) {
-                    console.log('TRUE');
-                } else {
-                    console.log('FALSE');
-                }
+            }, function (newTacheId) {
+                var newElement =    '<tr id="tache_' + newTacheId + '" data-id="\' + newTacheId + \'">' +
+                                    '    <td>' + newTacheId + '</td>' +
+                                    '    <td>' + nom + '</td>' +
+                                    '    <td>' + description + '</td>' +
+                                    '    <td>Greg</td>' +
+                                    '    <td>' +
+                                    '        <input type="submit" value="Modifier" class="btn btn-primary"/>' +
+                                    '        <input type="submit" value="Supprimer" class="btn btn-danger delete_tache"/>' +
+                                    '    </td>' +
+                                    '</tr>';
+
+                parentElement.find('table tbody').append(newElement);
             })
         }
     });
@@ -36,10 +42,12 @@ $j(document).ready(function () {
     parentElement.find('.delete_tache').on('click', function () {
         var tacheId = $j(this).closest('tr').attr('data-id');
 
-        console.log("test");
-        console.log('Log : ' + tacheId);
-        // if (window.confirm("Confirmer la création de cette tâche ?")) {
-
-        // }
+        if (window.confirm("Confirmer la suppréssion de la tache " + tacheId + " ?")) {
+            $j.post("/tache/delete", {
+                id: tacheId
+            }, function () {
+                parentElement.find('#tache_' + tacheId).remove();
+            })
+        }
     });
 });
