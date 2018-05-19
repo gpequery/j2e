@@ -23,6 +23,7 @@ $j(document).ready(function () {
                 description:description,
                 prioriteId: prioriteId
             }, function (data) {
+                //TODO fix le if avec le return du servlet pour fermer la dialog + inserer la ligne de la tache dans le tableau
                 if (data) {
                     console.log('TRUE');
                 } else {

@@ -51,5 +51,6 @@ public class Home extends HttpServlet {
         tacheManager.addTache(newTache);
 
         //TODO return true||false pour gerer l'erreur de l'ajout en js sur l'UI ??
+        //TODO créer tache créer sans priorite, fix le if ??
     }
 }
