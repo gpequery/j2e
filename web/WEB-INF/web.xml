@@ -16,6 +16,4 @@
         <url-pattern>/tache/update</url-pattern>
         <url-pattern>/tache/delete</url-pattern>
     </servlet-mapping>
-
-    <!-- OTHER -->
 </web-app>
