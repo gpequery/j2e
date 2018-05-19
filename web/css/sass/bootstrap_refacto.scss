@@ -16,6 +16,12 @@ nav {
     }
 }
 
+input[type='submit'],
+input[type='reset'] {
+    font-weight: bold !important;
+    color: white !important;
+}
+
 footer {
     text-align: center;
     padding: 12px;

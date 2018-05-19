@@ -52,10 +52,10 @@
 <div class="dialog" id="dialog_tache">
     <form>
         <label for="dialog_tache_nom">Nom</label>
-        <input type="text" name="nom" id="dialog_tache_nom" class="form-control"/>
+        <input type="text" name="nom" placeholder="Nom" id="dialog_tache_nom" class="form-control"/>
 
         <label for="dialog_tache_description">Description</label>
-        <textarea class="form-control" id="dialog_tache_description" rows="5"></textarea>
+        <textarea class="form-control" placeholder="Description" id="dialog_tache_description" rows="5"></textarea>
 
         <label for="dialog_tache_priorite">Description</label>
         <select class="form-control" id="dialog_tache_priorite">
@@ -63,6 +63,11 @@
                 <option value="${priorite.id}">${priorite.nom}</option>
             </c:forEach>
         </select>
+
+        <div id="form_input">
+            <input type="reset" class="btn btn-warning"/>
+            <input type="submit" class="btn btn-success"/>
+        </div>
     </form>
 </div>
 

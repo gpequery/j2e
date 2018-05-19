@@ -58,7 +58,7 @@ public class PrioriteManager {
         Session session = DatabaseUtils.getSessionFactory().getCurrentSession();
         session.beginTransaction();
 
-        List prioritesList = session.createQuery("FROM Priorite").list();
+        List prioritesList = session.createQuery("FROM Priorite order by nom").list();
         List<Priorite> list = new ArrayList<>();
 
         for (Object priorite : prioritesList) {

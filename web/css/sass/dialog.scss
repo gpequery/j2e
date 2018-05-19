@@ -1,0 +1,34 @@
+#dialog_background {
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #000c;
+}
+
+#dialog_tache {
+    form {
+        label {
+            margin-top: 10px;
+            margin-bottom: 0;
+            margin-left: 2px;
+        }
+
+        #form_input {
+            margin-top: 20px;
+            input {
+                width: 46%;
+
+                &:first-child {
+                    margin-right: 3%;
+                }
+
+                &:last-child {
+                    margin-left: 3%;
+                }
+            }
+        }
+    }
+}
