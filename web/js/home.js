@@ -32,4 +32,14 @@ $j(document).ready(function () {
             })
         }
     });
+
+    parentElement.find('.delete_tache').on('click', function () {
+        var tacheId = $j(this).closest('tr').attr('data-id');
+
+        console.log("test");
+        console.log('Log : ' + tacheId);
+        // if (window.confirm("Confirmer la création de cette tâche ?")) {
+
+        // }
+    });
 });

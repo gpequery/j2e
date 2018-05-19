@@ -6,4 +6,47 @@ body {
     textarea {
         resize: none;
     }
+
+    nav {
+        position: fixed !important;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 2;
+        .dropdown {
+            .dropdown-toggle:after {
+                display: none;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+            }
+
+            .dropdown-menu {
+                top: 102%;
+                right: 0;
+                left: initial;
+            }
+        }
+    }
+
+    .container {
+        margin: 50px auto 70px auto;
+    }
+
+    footer {
+        text-align: center;
+        padding: 12px;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 2;
+    }
+
+    input[type='submit'],
+    input[type='reset'] {
+        font-weight: bold !important;
+        color: white !important;
+    }
 }

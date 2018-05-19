@@ -37,7 +37,7 @@
                                     <td>${tache.priorite.nom}</td>
                                     <td>
                                         <input type="submit" value="Modifier" class="btn btn-primary"/>
-                                        <input type="submit" value="Supprimer" class="btn btn-danger"/>
+                                        <input type="submit" value="Supprimer" class="btn btn-danger delete_tache"/>
                                     </td>
                                 </tr>
                             </c:forEach>
