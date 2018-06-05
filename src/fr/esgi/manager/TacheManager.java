@@ -3,7 +3,6 @@ package fr.esgi.manager;
 import fr.esgi.DatabaseUtils;
 import fr.esgi.dto.Priorite;
 import fr.esgi.dto.Tache;
-import javafx.scene.layout.Priority;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
@@ -25,11 +24,15 @@ public class TacheManager {
         Session session = DatabaseUtils.getSessionFactory().getCurrentSession();
         session.beginTransaction();
 
-        String sql = "SELECT id, nom FROM Tache " + whereClause;
+        String sql = "SELECT t.id, t.nom FROM Tache t";
+        sql += " INNER JOIN Priorite p ON t.priorite = p.id ";
+        sql += whereClause;
+        sql += " ORDER BY p.val";
         Query query = session.createQuery(sql);
         query.setParameter("param", value);
         List<Object[]> list = query.list();
 
+        session.getTransaction().commit();
         session.close();
 
         Tache tache = new Tache();
@@ -43,17 +46,6 @@ public class TacheManager {
         return getTache("WHERE nom = :param", name);
     }
     public Tache getTacheById(int id){ return getTache("WHERE id = :param", id); }
-
-    // Ca c'est ok mais pas ouf
-//    public Tache getTacheById(int id){
-//        Session session = DatabaseUtils.getSessionFactory().getCurrentSession();
-//        session.beginTransaction();
-//
-//        Tache p = session.get(Tache.class, id);
-//
-//        session.close();
-//        return p;
-//    }
 
     public List<Tache> getTaches(){
         Session session = DatabaseUtils.getSessionFactory().getCurrentSession();

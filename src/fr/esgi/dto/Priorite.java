@@ -3,16 +3,19 @@ package fr.esgi.dto;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "PRIORITE")
+@Table(name = "priorite")
 public class Priorite {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name = "ID")
+    @Column(name = "priorite_id")
     private int id;
 
-    @Column(name = "NOM")
+    @Column(name = "nom")
     private String nom;
+
+    @Column(name = "val")
+    private float val;
 
     public Priorite() {
     }
@@ -42,11 +45,20 @@ public class Priorite {
         this.nom = nom;
     }
 
+    public float getValue() {
+        return val;
+    }
+
+    public void setValue(float value) {
+        this.val = value;
+    }
+
     @Override
     public String toString() {
         return "Priorite{" +
                 "id=" + id +
                 ", nom='" + nom + '\'' +
+                ", val=" + val +
                 '}';
     }
 }

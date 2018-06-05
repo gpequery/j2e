@@ -9,8 +9,8 @@
 
 <html>
     <head>
-        <title>Elèves</title>
         <meta charset="UTF-8"/>
+        <title>Elèves</title>
         <link rel="stylesheet" href="../css/compile/compile.css"/>
         <script src="../js/jquery/jquery.js"></script>
         <script>$j = jQuery.noConflict()</script>

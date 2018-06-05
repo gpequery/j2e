@@ -3,22 +3,22 @@ package fr.esgi.dto;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "TACHE")
+@Table(name = "tache")
 public class Tache {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name = "ID")
+    @Column(name = "tache_id")
     private int id;
 
-    @Column(name = "NOM")
+    @Column(name = "nom")
     private String nom;
 
-    @Column(name = "DESCRIPTION")
+    @Column(name = "description")
     private String description;
 
-    @OneToOne
-    @JoinColumn(name = "ID")
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(referencedColumnName = "priorite_id")
     private Priorite priorite;
 
     public Tache() {

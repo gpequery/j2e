@@ -6,8 +6,6 @@ import fr.esgi.dto.Priorite;
 import fr.esgi.dto.Tache;
 import fr.esgi.manager.PrioriteManager;
 import fr.esgi.manager.TacheManager;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -20,12 +18,18 @@ import java.util.List;
 import java.util.Map;
 
 public class Home extends HttpServlet {
+
     /* AFFICHE LA PAGE */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         TacheManager tacheManager = new TacheManager();
-        List<Tache> taches = tacheManager.getTaches();
-
         PrioriteManager prioriteManager = new PrioriteManager();
+
+//        Tache tache = new Tache("newTask", "LOOOOOOOOOL", prioriteManager.getPrioriteByName("Moyen"));
+//        tacheManager.addTache(tache);
+
+
+
+        List<Tache> taches = tacheManager.getTaches();
         List<Priorite> priorites = prioriteManager.getPriorites();
 
         request.setAttribute("taches", taches);

@@ -29,6 +29,7 @@
                         </thead>
 
                         <tbody>
+                            <%-- Boucle sur les tâches pour les afficher --%>
                             <c:forEach items="${taches}" var="tache">
                                 <tr id="tache_${tache.id}" data-id="${tache.id}">
                                     <td>${tache.id}</td>
@@ -49,6 +50,7 @@
     </div>
 </div>
 
+<%-- Boite de dialogue pour ajouter une tâche --%>
 <div class="dialog" id="dialog_tache">
     <form>
         <label for="dialog_tache_nom">Nom</label>

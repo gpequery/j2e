@@ -8,6 +8,9 @@
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Hibernate 5.2.16-5.2.16" />
+          <element id="library" level="project" name="postgresql-42.2.2" />
+          <element id="library" level="project" name="javax.servlet:jstl:1.2" />
+          <element id="library" level="project" name="gson-2.6.2" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="j2e/web/Web" />

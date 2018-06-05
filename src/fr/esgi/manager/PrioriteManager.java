@@ -11,30 +11,32 @@ import java.util.List;
 
 public class PrioriteManager {
 
-    public void addPriorite(Priorite priorite){
-        Session session = DatabaseUtils.getSessionFactory().getCurrentSession();
-        session.beginTransaction();
-        session.save(priorite);
-        session.getTransaction().commit();
-        session.close();
-    }
+//    public void addPriorite(Priorite priorite){
+//        Session session = DatabaseUtils.getSessionFactory().getCurrentSession();
+//        session.beginTransaction();
+//        session.save(priorite);
+//        session.getTransaction().commit();
+//        session.close();
+//    }
 
     private Priorite getPriorite(String whereClause, Object value){
         Session session = DatabaseUtils.getSessionFactory().getCurrentSession();
         session.beginTransaction();
 
         String sql = "SELECT id, nom FROM Priorite " + whereClause;
-//        System.out.println("La request : " + sql);
         Query query = session.createQuery(sql);
         query.setParameter("param", value);
         List<Object[]> list = query.list();
 
-        session.close();
-
         Priorite p = new Priorite();
-        p.setId((int)list.get(0)[0]);
-        p.setNom((String)list.get(0)[1]);
+        
+        if(list.size() != 0){
+            p.setId((int)list.get(0)[0]);
+            p.setNom((String)list.get(0)[1]);
+        }
 
+        session.getTransaction().commit();
+        session.close();
         return p;
     }
 
@@ -42,17 +44,6 @@ public class PrioriteManager {
         return getPriorite("WHERE nom = :param", name);
     }
     public Priorite getPrioriteById(int id){ return getPriorite("WHERE id = :param", id); }
-
-    // Ca c'est ok mais pas ouf
-//    public Priorite getPrioriteById(int id){
-//        Session session = DatabaseUtils.getSessionFactory().getCurrentSession();
-//        session.beginTransaction();
-//
-//        Priorite p = session.get(Priorite.class, id);
-//
-//        session.close();
-//        return p;
-//    }
 
     public List<Priorite> getPriorites(){
         Session session = DatabaseUtils.getSessionFactory().getCurrentSession();
