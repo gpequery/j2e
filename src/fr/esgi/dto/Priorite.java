@@ -14,6 +14,9 @@ public class Priorite {
     @Column(name = "NOM")
     private String nom;
 
+    @Column(name = "VAL")
+    private float val;
+
     public Priorite() {
     }
 

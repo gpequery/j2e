@@ -17,8 +17,8 @@ public class Tache {
     @Column(name = "DESCRIPTION")
     private String description;
 
-    @OneToOne
-    @JoinColumn(name = "ID")
+    @ManyToOne
+    @JoinColumn(name = "PRIORITE_ID", referencedColumnName = "ID", insertable = true, updatable = true)
     private Priorite priorite;
 
     public Tache() {

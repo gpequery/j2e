@@ -25,8 +25,12 @@ public class TacheManager {
         Session session = DatabaseUtils.getSessionFactory().getCurrentSession();
         session.beginTransaction();
 
-        String sql = "SELECT id, nom FROM Tache " + whereClause;
+        String sql = "SELECT t.id, t.nom FROM Tache t";
+        sql += " INNER JOIN Priorite p ON t.priorite = p.id ";
+        sql += whereClause;
+        sql += " ORDER BY p.val";
         Query query = session.createQuery(sql);
+
         query.setParameter("param", value);
         List<Object[]> list = query.list();
 
@@ -40,9 +44,9 @@ public class TacheManager {
     }
 
     public Tache getTacheByName(String name){
-        return getTache("WHERE nom = :param", name);
+        return getTache("WHERE t.nom = :param", name);
     }
-    public Tache getTacheById(int id){ return getTache("WHERE id = :param", id); }
+    public Tache getTacheById(int id){ return getTache("WHERE t.id = :param", id); }
 
     // Ca c'est ok mais pas ouf
 //    public Tache getTacheById(int id){
