@@ -3,7 +3,6 @@ package fr.esgi.manager;
 import fr.esgi.DatabaseUtils;
 import fr.esgi.dto.Priorite;
 import fr.esgi.dto.Tache;
-import javafx.scene.layout.Priority;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
@@ -47,17 +46,6 @@ public class TacheManager {
         return getTache("WHERE t.nom = :param", name);
     }
     public Tache getTacheById(int id){ return getTache("WHERE t.id = :param", id); }
-
-    // Ca c'est ok mais pas ouf
-//    public Tache getTacheById(int id){
-//        Session session = DatabaseUtils.getSessionFactory().getCurrentSession();
-//        session.beginTransaction();
-//
-//        Tache p = session.get(Tache.class, id);
-//
-//        session.close();
-//        return p;
-//    }
 
     public List<Tache> getTaches(){
         Session session = DatabaseUtils.getSessionFactory().getCurrentSession();

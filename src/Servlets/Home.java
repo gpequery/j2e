@@ -6,8 +6,6 @@ import fr.esgi.dto.Priorite;
 import fr.esgi.dto.Tache;
 import fr.esgi.manager.PrioriteManager;
 import fr.esgi.manager.TacheManager;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
